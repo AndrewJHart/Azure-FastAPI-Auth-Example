@@ -2,7 +2,6 @@
 This api is made with FastAPI
 
 ## requirements
-- octopus-data-gcp.json from GCP Console to access the big query and put in the project root
 - install gnu `make`
 
 

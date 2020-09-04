@@ -2,15 +2,15 @@ version: "3"
 
 services:
   web:
-    image: api_scavenger_route_production:latest
+    image: fast_api_boilerplate_production:latest
     build:
       context: .
       dockerfile: Dockerfile.production
-    container_name: api_scavenger_route_production
+    container_name: fast_api_boilerplate_production
 #    expose:
 #      - 80
     env_file:
             - .env
-    command: bash -c "export GOOGLE_APPLICATION_CREDENTIALS=\"octopus-data-gcp.json\" && uvicorn app.main:app --host 0.0.0.0 --port 80"
+    command: bash -c "uvicorn app.main:app --host 0.0.0.0 --port 80"
     ports:
       - "80:80"
