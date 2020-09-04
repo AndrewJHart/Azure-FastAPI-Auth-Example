@@ -1,0 +1,5 @@
+venv
+.idea
+octopus-data-gcp.json
+.env
+app/__pycache__
