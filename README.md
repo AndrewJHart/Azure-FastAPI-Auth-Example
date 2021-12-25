@@ -1,9 +1,23 @@
 # MS Graph API authentication example with Fast API
 
-This is to use python webapp and authenticate with MS Azure using Fast API instead of Flask.
+## What it is & does
+
+This is a simple python service/webapp, using [FastAPI](https://fastapi.tiangolo.com/) with server side rendering, that uses the Microsoft [MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-python) library for SSO auth with Azure. 
+The app handles performing the redirect and handshake for SSO, fetching the JWT(s), and allowing authorized http requests to the MS GraphAPI on behalf
+the given user. 
+
+## Why does this exist?
+
+The quickstart guide for python and Azure SSO is based on Flask. There are some interesting caveats to using the MSAL library with FastAPI instead of Flask.
+Thus I thought it useful to setup a simple & functional FastAPI app that works properly.
+
+> Note that I think FastAPI is really awesome! This demo shows off some use of its concurrency (async/await), as well as a simple & elegant mem-cache 
+> as a session mechanism. The FastAPI [cache](https://github.com/long2ice/fastapi-cache) package is easy to use, configure, and supports redis 
+> (with very little code change) - so setting up a distributed, and shared cache pool has never been easier.
 
 ## requirements
 - install gnu `make`
+- the MSAL python package - installation is documented in the article link below.
 - follow setup guide here for Azure [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-v2-python-webapp)
 
 
@@ -33,9 +47,13 @@ Install requirements
 $ pip install -r requirements.txt
 ```
 
+Run the app 
+
 ```bash 
 $ make uvicorn
 ```
+
+Open your browser and point to `localhost:9000`
 
 ### Using docker:
 `make docker`
