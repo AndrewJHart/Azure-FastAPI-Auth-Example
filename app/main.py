@@ -48,7 +48,7 @@ async def index(
         # user authenticated, render index with proper context
         return templates.TemplateResponse(
             'index.html',
-            {'request': request, 'user': user, 'endpoint': True, 'version': msal.__version__}
+            {'request': request, 'user': user, 'endpoint': True}
         )
 
     # otherwise, no user/token so redirect to login page
@@ -70,7 +70,7 @@ async def login(
 
     return templates.TemplateResponse(
         'login.html',
-        {'request': request, 'auth_url': cached_flow['auth_uri'], 'version': msal.__version__}
+        {'request': request, 'auth_url': cached_flow['auth_uri']}
     )
 
 
